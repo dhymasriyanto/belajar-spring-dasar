@@ -12,15 +12,15 @@ import lombok.extern.slf4j.Slf4j;
 public class Connection implements InitializingBean, DisposableBean {
 
 	@Override
-	public void destroy() throws Exception {
+	public void afterPropertiesSet() throws Exception {
 		log.info("Connection is ready to be used.");
 	}
-
-	@Override
-	public void afterPropertiesSet() throws Exception {
+    
+		@Override
+	public void destroy() throws Exception {
 		log.info("Connection is closed.");
 	}
-    
-	
+
+
 }
 
