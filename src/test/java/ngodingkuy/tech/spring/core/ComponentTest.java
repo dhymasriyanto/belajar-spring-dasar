@@ -9,7 +9,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import ngodingkuy.tech.spring.core.repository.CategoryRepository;
+import ngodingkuy.tech.spring.core.repository.CustomerRepository;
 import ngodingkuy.tech.spring.core.repository.ProductRepository;
+import ngodingkuy.tech.spring.core.service.CategoryService;
+import ngodingkuy.tech.spring.core.service.CustomerService;
 import ngodingkuy.tech.spring.core.service.ProductService;
 
 public class ComponentTest {
@@ -35,6 +39,25 @@ public class ComponentTest {
 		ProductRepository productRepository = applicationContext.getBean(ProductRepository.class);
 
 		Assertions.assertSame(productRepository, productService.getProductRepository());
+	}
+
+	@Test
+	void testSetterComponentDependencyInjection(){
+		CategoryService categoryService = applicationContext.getBean(CategoryService.class);
+		CategoryRepository categoryRepository = applicationContext.getBean(CategoryRepository.class);
+
+
+		Assertions.assertSame(categoryRepository, categoryService.getCategoryRepository());
+	}
+
+	@Test
+	void testFieldComponentDependencyInjection(){
+		CustomerService customerService = applicationContext.getBean(CustomerService.class);
+		CustomerRepository normalCustomerRepository = applicationContext.getBean("normalCustomerRepository", CustomerRepository.class);
+		CustomerRepository premiumCustomerRepository = applicationContext.getBean("premiumCustomerRepository", CustomerRepository.class);
+
+		Assertions.assertSame(normalCustomerRepository, customerService.getNormalCustomerRepository());
+		Assertions.assertSame(premiumCustomerRepository, customerService.getPremiumCustomerRepository());
 	}
 }
 
