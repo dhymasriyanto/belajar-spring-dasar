@@ -3,12 +3,14 @@ package ngodingkuy.tech.spring.core;
 *ComponentTest 
 */
 
+import org.apache.logging.log4j.message.MultiformatMessage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import ngodingkuy.tech.spring.core.data.MultiFoo;
 import ngodingkuy.tech.spring.core.repository.CategoryRepository;
 import ngodingkuy.tech.spring.core.repository.CustomerRepository;
 import ngodingkuy.tech.spring.core.repository.ProductRepository;
@@ -58,6 +60,13 @@ public class ComponentTest {
 
 		Assertions.assertSame(normalCustomerRepository, customerService.getNormalCustomerRepository());
 		Assertions.assertSame(premiumCustomerRepository, customerService.getPremiumCustomerRepository());
+	}
+
+	@Test
+	void testObjectProvider(){
+		MultiFoo multiFoo = applicationContext.getBean(MultiFoo.class);
+
+		Assertions.assertEquals(3, multiFoo.getFoos().size());
 	}
 }
 

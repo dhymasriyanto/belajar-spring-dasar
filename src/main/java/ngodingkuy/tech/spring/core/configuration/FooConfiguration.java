@@ -15,5 +15,13 @@ public class FooConfiguration {
 	public Foo foo() {
 		return new Foo();
 	}
+	@Bean
+	public Foo foo2() {
+		return new Foo();
+	}
+	@Bean
+	public Foo foo3() {
+		return new Foo();
+	}
 }
 
