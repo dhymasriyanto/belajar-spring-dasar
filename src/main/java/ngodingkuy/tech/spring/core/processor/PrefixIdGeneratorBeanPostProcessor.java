@@ -12,20 +12,20 @@ import ngodingkuy.tech.spring.core.aware.IdAware;
 
 @Slf4j
 @Component
-public class IdGeneratorBeanPostProcessor implements BeanPostProcessor, Ordered {
+public class PrefixIdGeneratorBeanPostProcessor implements BeanPostProcessor , Ordered{
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        log.info("Id Generator Processor for Bean {}", beanName);
+        log.info("Prefix Id Generator Processor for Bean {}", beanName);
         if (bean instanceof IdAware) {
-            log.info("Set Id Generator for Bean {}", bean);
+            log.info("Prefix Set Id Generator for Bean {}", bean);
             IdAware idAware = (IdAware) bean;
-            idAware.setId(UUID.randomUUID().toString());
+            idAware.setId("PZN-" + idAware.getId());
         }
         return bean;
     }
 
     @Override
     public int getOrder() {
-        return 1;
+        return 2;
     }
 }

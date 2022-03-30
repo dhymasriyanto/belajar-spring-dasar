@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Import;
 
 import ngodingkuy.tech.spring.core.data.Car;
 import ngodingkuy.tech.spring.core.processor.IdGeneratorBeanPostProcessor;
+import ngodingkuy.tech.spring.core.processor.PrefixIdGeneratorBeanPostProcessor;
 
 /**
 *BeanPostProcessorConfiguration 
@@ -12,7 +13,8 @@ import ngodingkuy.tech.spring.core.processor.IdGeneratorBeanPostProcessor;
 @Configuration
 @Import({
 	Car.class,
-	IdGeneratorBeanPostProcessor.class
+	IdGeneratorBeanPostProcessor.class,
+	PrefixIdGeneratorBeanPostProcessor.class
 })
 public class BeanPostProcessorConfiguration {
 
