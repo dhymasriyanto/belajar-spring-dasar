@@ -1,5 +1,7 @@
 package ngodingkuy.tech.spring.core.application;
 
+import java.util.List;
+
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,6 +9,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import ngodingkuy.tech.spring.core.data.Foo;
+import ngodingkuy.tech.spring.core.listener.AppStartingListener;
 
 @SpringBootApplication
 public class FooApplication {
@@ -25,6 +28,7 @@ public class FooApplication {
 	public static void main (String[] args) {
 		SpringApplication application = new SpringApplication(FooApplication.class);
 		
+		application.setListeners(List.of(new AppStartingListener()));
 
 		//Custom Spring Application here
 
