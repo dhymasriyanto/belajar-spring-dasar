@@ -1,13 +1,13 @@
-package ngodingkuy.tech.spring.core;
+//package ngodingkuy.tech.spring.core;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+//import org.junit.jupiter.api.Test;
+//import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class BelajarSpringDasarApplicationTests {
+//@SpringBootTest
+//class BelajarSpringDasarApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+	//@Test
+	//void contextLoads() {
+	//}
 
-}
+//}
