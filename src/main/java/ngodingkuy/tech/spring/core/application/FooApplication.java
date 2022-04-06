@@ -25,20 +25,20 @@ public class FooApplication {
 
 		//System.out.println(foo);
 	//}
-	public static void main (String[] args) {
-		SpringApplication application = new SpringApplication(FooApplication.class);
+	//public static void main (String[] args) {
+		//SpringApplication application = new SpringApplication(FooApplication.class);
 		
-		application.setListeners(List.of(new AppStartingListener()));
+		//application.setListeners(List.of(new AppStartingListener()));
 
 		//Custom Spring Application here
 
 		//application.setBannerMode(Banner.Mode.OFF);
 
-		ConfigurableApplicationContext applicationContext = application.run(args);
+		//ConfigurableApplicationContext applicationContext = application.run(args);
 
-		Foo foo = applicationContext.getBean(Foo.class);
+		//Foo foo = applicationContext.getBean(Foo.class);
 
-		System.out.println(foo);
-	}
+		//System.out.println(foo);
+	//}
 }
 
